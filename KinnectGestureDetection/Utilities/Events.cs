@@ -128,6 +128,7 @@ namespace KinectGestureDetection
         /// <param name="gesture">Recognized gesture.</param>
         /// <param name="probability">Probability of recognition.</param>
         /// <param name="length">Length of recognized gesture.</param>
+        /// <param name="valid">Indicates, if gesture were recognized as valid (probability > gesture threshold).</param>
         /// <param name="forced">True if gesture was forced.</param>
         public GestureEventArgs(KinectGesturePlayer player, Gestures.IGesture gesture, double probability, int length, bool valid, bool forced = false)
         {

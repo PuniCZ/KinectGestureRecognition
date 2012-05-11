@@ -7,7 +7,7 @@ namespace KinectGestureDetection
     /// <summary>
     /// Class used for vector based values to discreete combination of directions in threee planes.
     /// </summary>
-    public class DirectionRecognition
+    public static class DirectionRecognition
     {
         /// <summary>
         /// Enum representing individual directions and also ints combinations.

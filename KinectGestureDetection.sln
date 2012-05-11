@@ -1,9 +1,9 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectGestureDetection", "KinnectGestureDetection\KinectGestureDetection.csproj", "{EFA07171-2655-4E11-BE69-3FFB2F01E95F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectGestureDemo", "KinnectGestureVideoPlayer\KinectGestureDemo.csproj", "{4AABCD5D-15E2-4F56-9F90-C84DD17EE282}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectGestureDemo", "KinnectGestureDemo\KinectGestureDemo.csproj", "{4AABCD5D-15E2-4F56-9F90-C84DD17EE282}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accord.Math", "Accord.Math\Accord.Math.csproj", "{F718E9A8-DB62-4785-8C49-4333A60D256A}"
 EndProject

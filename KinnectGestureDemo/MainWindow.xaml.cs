@@ -77,7 +77,7 @@ namespace KinnectGestureDemo
             timer.Tick += new EventHandler(timer_Tick);
             timer.Interval = new TimeSpan(0, 0, 3);
         }
-
+        
         /// <summary>
         /// Timer event for cleanup gesture info.
         /// </summary>
@@ -98,8 +98,13 @@ namespace KinnectGestureDemo
         {
             timer.Stop();
             gestureInfo.Content = recognitionInfo.Gesture.Name;
+            if (recognitionInfo.IsValid)
+                gestureInfo.Foreground = Brushes.Green;
+            else
+                gestureInfo.Foreground = Brushes.Red;
+
             gestureProbability.Content = String.Format(
-                "Probability: {0} \nPlayer: {1} \nLength: {2} \nValid: {3}", 
+                "Probability: {0:0.0} \nPlayer: {1} \nLength: {2} \nValid: {3}", 
                 recognitionInfo.Probability, 
                 recognitionInfo.SourcePlayer.Index, 
                 recognitionInfo.Length, 
@@ -138,7 +143,7 @@ namespace KinnectGestureDemo
         /// <param name="sender">Source kinect gesture recognition api instance.</param>
         private void VideoImageReady(object sender)
         {
-            video.Background = new ImageBrush(kinect.VideoSource);
+            video.Background = new ImageBrush(kinect.Video.ImageSource);
         }
 
         /// <summary>

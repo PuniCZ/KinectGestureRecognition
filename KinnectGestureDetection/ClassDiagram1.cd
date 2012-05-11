@@ -1,7 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="KinectGestureDetection.DirectionSequence">
-    <Position X="5" Y="0.75" Width="1.75" />
+    <Position X="11.75" Y="2.25" Width="1.75" />
+    <Members>
+      <Method Name="Clone" Hidden="true" />
+      <Method Name="FromString" Hidden="true" />
+      <Property Name="ToArray" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -11,18 +17,43 @@
     </TypeIdentifier>
   </Class>
   <Class Name="KinectGestureDetection.KinectGestureAPI" BaseTypeListCollapsed="true">
-    <Position X="0.5" Y="0.75" Width="2.25" />
+    <Position X="3" Y="2.5" Width="2.25" />
+    <Members>
+      <Method Name="~KinectGestureAPI" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeKinectServices" Hidden="true" />
+      <Method Name="KinectAllFramesReady" Hidden="true" />
+      <Method Name="OnFrameReady" Hidden="true" />
+      <Method Name="OnGestureRecognized" Hidden="true" />
+      <Method Name="OnSequenceReady" Hidden="true" />
+      <Method Name="ReregisterAllGesturesForNewKinectDevice" Hidden="true" />
+      <Method Name="UninitializeKinectServices" Hidden="true" />
+    </Members>
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAIAAQIQECAwAAAAAgAAAAAEgAAgBBAAIAAACIEoAok=</HashCode>
+      <HashCode>AAIAAQIQECAwAAAAAgAAAAAEgAAgBBAAIAAACAEoAok=</HashCode>
       <FileName>KinectGestureAPI.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="KinectGestureDetection.KinectGesturePlayer">
-    <Position X="10.75" Y="0.75" Width="2" />
+    <Position X="9.75" Y="2.25" Width="1.75" />
+    <Members>
+      <Event Name="GestureRecognized" Hidden="true" />
+      <Method Name="GetBodySegment" Hidden="true" />
+      <Method Name="GetPointVisual" Hidden="true" />
+      <Method Name="GetPosition2DLocation" Hidden="true" />
+      <Property Name="Joints" Hidden="true" />
+      <Method Name="OnGestureRecognized" Hidden="true" />
+      <Method Name="OnSequenceReady" Hidden="true" />
+      <Method Name="RecognizeGesture" Hidden="true" />
+      <Method Name="RecognizeGestureForMultipleSequences" Hidden="true" />
+      <Method Name="RecognizeGestureForSingleSequences" Hidden="true" />
+      <Event Name="SequenceReady" Hidden="true" />
+      <Method Name="UpdateJoints" Hidden="true" />
+    </Members>
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -32,7 +63,11 @@
     </TypeIdentifier>
   </Class>
   <Class Name="KinectGestureDetection.KinectGesturePlayerCollection">
-    <Position X="7.75" Y="4.5" Width="2" />
+    <Position X="5.5" Y="2.5" Width="2.25" />
+    <Members>
+      <Method Name="KinectGesturePlayerCollection_GestureRecognized" Hidden="true" />
+      <Method Name="KinectGesturePlayerCollection_SequenceReady" Hidden="true" />
+    </Members>
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -42,7 +77,11 @@
     </TypeIdentifier>
   </Class>
   <Class Name="KinectGestureDetection.KinectGestureVideo">
-    <Position X="8.75" Y="0.75" Width="1.75" />
+    <Position X="1" Y="2.5" Width="1.75" />
+    <Members>
+      <Method Name="ColorImageReady" Hidden="true" />
+      <Method Name="OnImageReady" Hidden="true" />
+    </Members>
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -52,9 +91,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="KinectGestureDetection.DirectionRecognition">
-    <Position X="5.25" Y="4.5" Width="2.25" />
+    <Position X="15.75" Y="2.25" Width="1.75" />
+    <Members>
+      <Method Name="DirectionRecognition" Hidden="true" />
+      <Property Name="DirectionsCount" Hidden="true" />
+    </Members>
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
       <Enum Name="KinectGestureDetection.DirectionRecognition.Directions" Collapsed="true">
@@ -69,7 +113,12 @@
     </TypeIdentifier>
   </Class>
   <Class Name="KinectGestureDetection.Filter3D">
-    <Position X="7" Y="0.75" Width="1.5" />
+    <Position X="13.75" Y="2.25" Width="1.75" />
+    <Members>
+      <Method Name="ComputeOutput" Hidden="true" />
+      <Property Name="LastVector3D" Hidden="true" />
+      <Property Name="ValueVector3D" Hidden="true" />
+    </Members>
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -78,26 +127,22 @@
       <FileName>Utilities\Filter3D.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="KinectGestureDetection.GestureEventArgs">
+    <Position X="6.5" Y="6.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAgAAAAIAAAgEgAAIBAAAAAAAAQAAAAEAAAAAQ=</HashCode>
+      <FileName>Utilities\Events.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="KinectGestureDetection.Gestures.IGesture">
-    <Position X="3.25" Y="4.5" Width="1.75" />
+    <Position X="8.25" Y="6.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAQAAIAAAAAQARAICAIAAAAAAIAgAAAAAA=</HashCode>
       <FileName>Gestures\IGesture.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Delegate Name="KinectGestureDetection.FrameReadyEventHandler">
-    <Position X="0.5" Y="5" Width="2.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Utilities\Events.cs</FileName>
-    </TypeIdentifier>
-  </Delegate>
-  <Delegate Name="KinectGestureDetection.VideoImageReadyEventHandler">
-    <Position X="0.5" Y="6" Width="2.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>KinectGestureVideo.cs</FileName>
-    </TypeIdentifier>
-  </Delegate>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

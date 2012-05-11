@@ -74,9 +74,17 @@ namespace KinectGestureRecorder
 	        }
 
             if (sequencesList.Items.Count > 0)
-                txtShowAproxLen.Text = (sum / sequencesList.Items.Count).ToString();
+            {
+                txtShowAproxLen.Content = (sum / sequencesList.Items.Count).ToString();
+                if (!paused)
+                    txtGestureLength.Text = (sum / sequencesList.Items.Count).ToString();
+            }
             else
-                txtShowAproxLen.Text = "0";
+            {
+                txtShowAproxLen.Content = "0";
+                if (!paused)
+                    txtGestureLength.Text = "0";
+            }
 
         }
 
@@ -106,7 +114,7 @@ namespace KinectGestureRecorder
 
         void VideoImageReady(object sender)
         {
-            videoCanvas.Background = new ImageBrush(kinect.VideoSource);
+            videoCanvas.Background = new ImageBrush(kinect.Video.ImageSource);
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -121,7 +129,7 @@ namespace KinectGestureRecorder
                 gesture = new GenericOnePoint(gestureIndex++);
                 gesture.Initialize(txtGestureName.Text, (JointType)cmbPoinType.SelectedItem, Int32.Parse(txtNumOfStates.Text));
                 kinect.RegisterGesture(gesture);
-                button1.Content = "Stop capture";
+                button1.Content = "Reset (clear) capture";
             }
             else
             {
@@ -163,7 +171,7 @@ namespace KinectGestureRecorder
 
             Dictionary<JointType, int[]> observations = new Dictionary<JointType, int[]>();
             observations.Add((JointType)cmbPoinType.SelectedItem, ((DirectionSequence)sequencesList.SelectedItem).ToArray);
-            txtSeqProp.Text = gesture.Calculate(observations).ToString();
+            txtSeqProp.Content = gesture.Calculate(observations).ToString();
 
         }
 
@@ -179,14 +187,15 @@ namespace KinectGestureRecorder
                 sum += item.Length;
             }
             if (sequencesList.Items.Count > 0)
-                txtShowAproxLen.Text = (sum / sequencesList.Items.Count).ToString();
+            {
+                txtShowAproxLen.Content = (sum / sequencesList.Items.Count).ToString();
+                txtGestureLength.Text = (sum / sequencesList.Items.Count).ToString();
+            }
             else
-                txtShowAproxLen.Text = "0";
-        }
-
-        private void button5_Click(object sender, RoutedEventArgs e)
-        {
-
+            {
+                txtShowAproxLen.Content = "0";
+                txtGestureLength.Text = "0";
+            }
         }
 
         private void button4_Click(object sender, RoutedEventArgs e)
@@ -243,7 +252,7 @@ namespace KinectGestureRecorder
                         break;
                     }
                 }                
-                button1.Content = "Stop capture";
+                button1.Content = "Reset capture";
             }
         }
 

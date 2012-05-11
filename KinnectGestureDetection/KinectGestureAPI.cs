@@ -99,24 +99,10 @@ namespace KinectGestureDetection
                     else
                         throw new KinectStateException("Unable to succefully initialize current kinect device.");
                 }
-                else
-                    throw new KinectStateException("Kinect senzor cannot by null.");
             }
         }
 
-        /// <summary>
-        /// Gets video stream source with relolution 640x480px. Also initialize video class, if needed.
-        /// </summary>
-        public BitmapSource VideoSource
-        {
-            get
-            {
-                if (video == null)
-                    video = new KinectGestureVideo(kinect);
-                return video.ImageSource;
-            }
-        }
-
+        
         /// <summary>
         /// Gets instance of class representing video stream. If there is no one, creates it.
         /// </summary>
@@ -217,6 +203,7 @@ namespace KinectGestureDetection
         /// <returns>Returns passed gesture.</returns>
         /// <seealso cref="IGesture"/>
         /// <exception cref="KinectStateException">Gesture with this id already registered.</exception>
+        /// <exception cref="GestureStateException">On some error in gesture initialization or loading.</exception>
         public IGesture RegisterGesture(IGesture gesture, string gestureDataFile, bool forcedGestureRecognition = false)
         {
             if (gestureStore.Select(gest => gest.Key.Id == gesture.Id).Contains(true))

@@ -206,6 +206,7 @@ namespace KinectGestureDetection
         {
             DirectionSequence newSeq = new DirectionSequence(this.type);
             newSeq.sequence = new List<DirectionRecognition.Directions>(this.sequence);
+            newSeq.type = this.type;
             return newSeq;
         }
 
